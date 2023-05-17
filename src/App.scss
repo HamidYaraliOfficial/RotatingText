@@ -1,0 +1,50 @@
+html {
+  box-sizing: border-box;
+}
+* {
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #FF3CAC;
+  background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+
+  font-family: 'Alfa Slab One', cursive;
+}
+
+.container {
+  perspective: 200px;
+  position: relative;
+  width: 15rem;
+  height: 5rem;
+
+  span {
+    position: absolute;
+    top: calc(2.5rem - 1em);
+    left: calc(7.5rem - 1em);
+    font-size: 1.7rem;
+    width: 2em;
+    heihgt: 3em;
+    line-heihgt: 3em;
+    text-transform: uppercase;
+    transform-style: preserve-3d;
+    transform: rotateY(calc((var(--i) - 1) * 20deg)) translateZ(5em);
+
+    animation: spin var(--duration) linear infinite;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(calc(var(--i) * 20deg)) translateZ(3em);
+  }
+  to {
+    transform: rotateY(calc(-360deg + var(--i) * 20deg)) translateZ(3em);
+  }
+}
